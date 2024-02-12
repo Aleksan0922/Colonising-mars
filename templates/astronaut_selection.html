@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Отбор астронавтов</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body>
+    <form method="POST">
+        <div>
+            <label for="surname">Фамилия</label>
+            <input type="text" id="surname" name="surname">
+        </div>
+        <div>
+            <label for="name">Имя</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div>
+            <label for="mail">Почта</label>
+            <input type="email" id="mail" name="mail">
+        </div>
+        <div>
+            <label for="educ">Образование</label>
+            <select id="educ" name="educ">
+                 <option>Начальное</option>
+                 <option>Среднее</option>
+                 <option>Высшее</option>
+                 <option>Какое то</option>
+            </select>
+        </div>
+        <div>
+            <label for="prof">Профессия</label>
+            <select id="prof" name="prof">
+                 <option>Инженер</option>
+                 <option>Строитель</option>
+                 <option>Программист</option>
+                 <option>Бездельник</option>
+            </select>
+        </div>
+        <div>
+            <label for="gender">Пол</label>
+            <select id="gender" name="gender">
+                 <option>Мужской</option>
+                 <option>Женский</option>
+            </select>
+        </div>
+        <div>
+            <label for="motiv">Мотивация</label>
+            <textarea id="motiv" name="motiv"></textarea>
+        </div>
+        <div>
+            <label for="stay">Готовы ли остаться на Марсе?</label>
+            <input type="checkbox" id="stay" name="stay">
+        </div>
+        <button type="submit">Отправить</button>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
