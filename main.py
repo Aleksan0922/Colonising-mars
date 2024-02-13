@@ -79,5 +79,30 @@ def choice_planet(planet_name):
                 </html>'''
 
 
+@app.route('/results/<nickname>/<level>/<rating>')
+def results(nickname, level, rating):
+    return f'''<!doctype html>
+                <html lang="ru">
+                  <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <title>Результаты</title>
+                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+                  </head>
+                  <body>
+                    <h1>Результаты отбора</h1>
+                    <p>Претендента на участие в миссии {nickname}:</p>
+                    <div class="alert alert-success" role="alert">
+                        Поздравляем! Ваш рейтинг после {level} этапа отбора
+                    </div>
+                    <p>Составляет {rating}!</p>
+                    <div class="alert alert-warning" role="alert">
+                        Желаем удачи!
+                    </div>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+                  </body>
+                </html>'''
+
+
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080)
