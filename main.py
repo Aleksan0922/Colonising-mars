@@ -104,5 +104,73 @@ def results(nickname, level, rating):
                 </html>'''
 
 
+@app.route('/load_photo', methods=['POST', 'GET'])
+def load_photo():
+    if request.method == 'GET':
+        return f'''<!doctype html>
+                            <html lang="en">
+                              <head>
+                                <meta charset="utf-8">
+                                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                                 <link rel="stylesheet"
+                                 href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+                                 integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+                                 crossorigin="anonymous">
+                                <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+                                <title>Пример загрузки файла</title>
+                              </head>
+                              <body>
+                                <h1>Загрузим файл</h1>
+                                <form method="post" enctype="multipart/form-data">
+                                   <div class="form-group">
+                                        <label for="photo">Выберите файл</label>
+                                        <input type="file" class="form-control-file" id="photo" name="file">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Отправить</button>
+                                </form>
+                              </body>
+                            </html>'''
+    elif request.method == 'POST':
+        f = request.files['file']
+        return
+
+
+@app.route('/carousel')
+def carousel():
+    return f'''<!doctype html>
+                <html lang="ru">
+                  <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <title>Пейзажи Марса</title>
+                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+                  </head>
+                  <body>
+                    <div id="carouselExample" class="carousel slide">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img src="https://avatars.mds.yandex.net/i?id=2a00000179f413e85054bc9881275f3be5ec-3934134-images-thumbs&n=13" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="https://avatars.mds.yandex.net/i?id=7bbddeedb7c9e2f5ab99f3589037a2c0-4607549-images-thumbs&n=13" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="https://avatars.mds.yandex.net/i?id=a75af58fd080fd24e7dd3e62fbfd3788_sr-9242678-images-thumbs&n=13" class="d-block w-100" alt="...">
+                        </div>
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+                  </body>
+                </html>'''
+
+
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080)
