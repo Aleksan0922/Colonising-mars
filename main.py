@@ -4,14 +4,10 @@ from flask import render_template, request
 app = Flask(__name__)
 
 
-@app.route('/')
-def u():
-    return 'Миссия Колонизация Марса'
-
-
-@app.route('/index')
-def index():
-    return 'И на Марсе будут яблони цвести!'
+@app.route('/<title>')
+@app.route('/index/<title>')
+def u(title):
+    return render_template('base.html', title=title)
 
 
 @app.route('/promotion')
