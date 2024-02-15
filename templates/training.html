@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h4>И на Марсе будут яблони цвести!</h4>
+    {% if 'инженер' in prof or 'строитель' in prof %}
+    <img src="/static/sci.png">
+    {% else %}
+    <img src="/static/ing.png">
+    {% endif %}
+{% endblock %}

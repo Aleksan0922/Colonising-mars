@@ -7,7 +7,12 @@ app = Flask(__name__)
 @app.route('/<title>')
 @app.route('/index/<title>')
 def u(title):
-    return render_template('base.html', title=title)
+    return render_template('uwu.html', title=title)
+
+
+@app.route('/training/<prof>')
+def training(prof):
+    return render_template('training.html', prof=prof)
 
 
 @app.route('/promotion')
