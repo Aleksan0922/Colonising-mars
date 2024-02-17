@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Список профессий</h2>
+    {% if list == 'ol' %}
+        <ol>
+            <li>Инженер</li>
+            <li>Строитель</li>
+            <li>Механик</li>
+        </ol>
+    {% elif list == 'ul' %}
+        <ul>
+            <li>Инженер</li>
+            <li>Строитель</li>
+            <li>Механик</li>
+        </ul>
+    {% endif %}
+{% endblock %}
