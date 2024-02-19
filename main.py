@@ -1,7 +1,46 @@
 from flask import Flask
-from flask import render_template, request
+from flask import render_template, request, redirect
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms.validators import DataRequired
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
+
+
+class LoginForm(FlaskForm):
+    username = StringField('Логин', validators=[DataRequired()])
+    password = PasswordField('Пароль', validators=[DataRequired()])
+    remember_me = BooleanField('Запомнить меня')
+    submit = SubmitField('Войти')
+
+
+class AutoLoginForm(FlaskForm):
+    surname = StringField('Фамилия', validators=[DataRequired()])
+    name = StringField('Имя', validators=[DataRequired()])
+    education = StringField('Образование', validators=[DataRequired()])
+    profession = StringField('Профессия', validators=[DataRequired()])
+    sex = StringField('Пол', validators=[DataRequired()])
+    motivation = StringField('Мотивация', validators=[DataRequired()])
+    ready = BooleanField('Готовы ли вы остаться на Марсе?')
+    submit = SubmitField('Войти')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        return form.username.data
+    return render_template('login.html', title='Авторизация', form=form)
+
+
+@app.route('/answer', methods=['GET', 'POST'])
+@app.route('/auto_answer', methods=['GET', 'POST'])
+def answer():
+    form = AutoLoginForm()
+    if form.validate_on_submit():
+        return render_template('success.html', form=form)
+    return render_template('login.html', title='Авторизация', form=form)
 
 
 @app.route('/<title>')
