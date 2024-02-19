@@ -26,6 +26,14 @@ class AutoLoginForm(FlaskForm):
     submit = SubmitField('Войти')
 
 
+class CapitanLoginForm(FlaskForm):
+    somebody_id = StringField('Id астронавта', validators=[DataRequired()])
+    somebody_password = PasswordField('Пароль астронавта', validators=[DataRequired()])
+    capitan_id = StringField('Id капитана', validators=[DataRequired()])
+    capitan_password = PasswordField('Пароль капитана', validators=[DataRequired()])
+    submit = SubmitField('Войти')
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
