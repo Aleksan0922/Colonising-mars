@@ -31,15 +31,15 @@ class CapitanLoginForm(FlaskForm):
     somebody_password = PasswordField('Пароль астронавта', validators=[DataRequired()])
     capitan_id = StringField('Id капитана', validators=[DataRequired()])
     capitan_password = PasswordField('Пароль капитана', validators=[DataRequired()])
-    submit = SubmitField('Войти')
+    submit = SubmitField('Доступ')
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm()
+    form = CapitanLoginForm()
     if form.validate_on_submit():
-        return form.username.data
-    return render_template('login.html', title='Авторизация', form=form)
+        return 'U'
+    return render_template('login.html', title='Аварийный доступ', form=form)
 
 
 @app.route('/answer', methods=['GET', 'POST'])
