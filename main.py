@@ -51,10 +51,18 @@ def answer():
     return render_template('login.html', title='Авторизация', form=form)
 
 
+@app.route('/distribution', methods=['GET', 'POST'])
+def distribution():
+    form = CapitanLoginForm()
+    if form.validate_on_submit():
+        return 'U'
+    return render_template('login.html', title='Аварийный доступ', form=form)
+
+
 @app.route('/<title>')
 @app.route('/index/<title>')
 def u(title):
-    return render_template('uwu.html', title=title)
+    return render_template('base.html', title=title)
 
 
 @app.route('/training/<prof>')
